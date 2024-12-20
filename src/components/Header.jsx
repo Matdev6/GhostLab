@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
 
-        <div>
+        <div className="overflow-x-hidden">
             <header className="w-screen h-20 bg-black text-white flex justify-center left-0 fixed top-0  items-center gap-3 z-50 ">
                 <img src={logo} alt="logo" className="w-20" />
                 <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:text-roxo-es transition-all" href="#">Home</a>

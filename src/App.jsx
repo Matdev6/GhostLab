@@ -1,15 +1,15 @@
 import Header from "./components/Header"
 import Hero from "./components/Hero"
-import Beats from "./components/Beats"
+import Catalogo from "./components/Catalogo"
 
 function App() {
 
 
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <Header />
       <Hero />
-      <Beats />
+      <Catalogo />
     </div>
   )
 }

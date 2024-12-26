@@ -13,7 +13,7 @@ const Hero = () => {
                 aria-hidden="true"
             />
             <div className="absolute top-1/4 left-20 flex flex-col w-96 ">
-                <h1 className="text-roxo-claro text-4xl font-bold p-4 rounded">
+                <h1 className="text-roxo-claro text-4xl font-bold p-4 ">
                     Ghost<span className="text-white">Lab Produção</span> 
                 </h1>
                 <p className="text-gray-50 text-2xl font-semibold ml-4  text-left">Compre seu Beat com produção profissional com o melhor custo beneficio do mercado</p>

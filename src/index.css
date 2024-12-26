@@ -15,3 +15,7 @@
   height: calc(100vh - 80px);
 }
 
+.img-fundo {
+  background-image: url("../assets/spotify.png");
+
+}

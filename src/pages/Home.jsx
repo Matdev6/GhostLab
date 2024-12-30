@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import videoplayback from "../assets/videoplayback.mp4";
 
-const Hero = () => {
+const Home = () => {
     return (
         <section className="overflow-hidden">
             <video
@@ -17,13 +17,15 @@ const Hero = () => {
                     Ghost<span className="text-white">Lab Produção</span> 
                 </h1>
                 <p className="text-gray-50 text-2xl lg:text-3xl font-semibold ml-4  text-left w-3/4">Compre seu Beat com produção profissional com o melhor custo beneficio do mercado!</p>
-                <motion.button 
+                <motion.a 
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95}}
-                className="text-white flex justify-center items-center p-4 bg-roxo-claro hover:bg-roxo-escuro transition-all w-48 h-10 rounded-lg mt-4 ml-4 font-bold">Contato</motion.button>
+                target="_blank"
+                href="https://web.whatsapp.com/"
+                className="text-white flex justify-center items-center p-4 bg-roxo-claro hover:bg-roxo-escuro transition-all w-48 h-10 rounded-lg mt-4 ml-4 font-bold">Contato</motion.a>
             </div>
         </section>
     );
-};
+}
 
-export default Hero;
+export default Home

@@ -1,8 +1,8 @@
 import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from "framer-motion";
-import Beats from './Beats';
-import BeatsMobile from './BeatsMobile';
+import Beats from '../components/Beats';
+import BeatsMobile from '../components/BeatsMobile';
 import beat1 from "../assets/beat1.jfif"
 import beat2 from "../assets/beat2.jfif"
 import beat3 from "../assets/beat3.jfif"
@@ -58,6 +58,9 @@ const Catalogo = () => {
                         navigation
                         centeredSlides={true}
                         scrollbar={{ draggable: true }}
+                        style={{
+                            '--swiper-navigation-color': '#AD26E3', // Customiza as cores do navigation
+                          }}
                     >
                         {beats.map((beat, index) => (
                             <SwiperSlide className='text-white' key={index}>

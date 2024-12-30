@@ -8,6 +8,8 @@ export default {
       colors: {
         "roxo-escuro" : "#6E2F7E",
         "roxo-claro" : "#AD26E3",
+        "fundo-primario" : "#191F2C",
+        "fundo-secundario" : "#2B303D"
       },
     },
   },

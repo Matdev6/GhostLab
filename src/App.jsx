@@ -1,7 +1,8 @@
 import Header from "./components/Header"
-import Hero from "./components/Hero"
-import Catalogo from "./components/Catalogo"
-import Social from "./components/Social"
+import Home from "./pages/Home"
+import Catalogo from "./pages/Catalogo"
+import Social from "./pages/Social"
+
 
 function App() {
 
@@ -9,9 +10,9 @@ function App() {
   return (
     <div className="overflow-x-hidden">
       <Header />
-      <Hero />
+      <Home />
       <Catalogo />
-      
+      <Social />
     </div>
   )
 }

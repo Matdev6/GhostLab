@@ -3,7 +3,7 @@
 const BeatsMobile = ({ imageSrc, label = "Novidade!", name}) => {
     return (
         <div className="flex flex-col">
-            <div className='bg-white w-72 h-72 mx-auto relative'>
+            <div className='bg-white w-72 md:w-96 h-72 md:h-96 mx-auto relative'>
                 <img src={imageSrc} alt="beat1" className='w-full h-full object-cover' />
                 <h1 className='bg-roxo-claro text-white px-4 py-1 text-sm absolute top-0 left-0'>{label}</h1>
             </div>

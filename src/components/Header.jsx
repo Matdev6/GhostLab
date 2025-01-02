@@ -10,9 +10,9 @@ const Header = () => {
                 <img src={logo} alt="logo" className="w-20" />
                 <div className="hidden lg:flex gap-3">
                     <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:text-roxo-es transition-all" href="#">Home</a>
-                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#catalogo">Beats Exclusivos</a>
-                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">ghostlab beats</a>
-                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">sample packs</a>
+                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-xs font-normal flex justify-center items-center" href="#catalogo">Catalogo exclusivo</a>
+                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">Catalogo </a>
+                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">Social</a>
                     <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">orçamentos</a>
                     <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">black friday</a>
                 </div>

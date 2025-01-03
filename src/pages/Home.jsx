@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import videoplayback from "../assets/videoplayback.mp4";
+import Catalogo from "./Catalogo";
+import NaoExclusivo from "./Naoexclusivo";
+import Social from "./Social";
 
 const Home = () => {
     return (
+        <>
         <section className="overflow-hidden">
             <video
                 src={videoplayback}
@@ -25,6 +29,10 @@ const Home = () => {
                 className="text-white flex justify-center items-center p-4 bg-roxo-claro hover:bg-roxo-escuro transition-all w-48 h-10 rounded-lg mt-4 ml-4 font-bold">Contato</motion.a>
             </div>
         </section>
+        <Catalogo />
+        <NaoExclusivo />
+        <Social />
+        </>
     );
 }
 

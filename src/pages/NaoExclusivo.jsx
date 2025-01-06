@@ -47,7 +47,7 @@ const NaoExclusivo = () => {
                         '--swiper-navigation-color': '#AD26E3', // Customiza as cores do navigation
                     }}>
                         {beats.map((beat, index) => (
-                            <SwiperSlide>
+                            <SwiperSlide key={index}>
                                 <BeatsMobile imageSrc={beat.img} name={beat.name} />
                             </SwiperSlide>
                         ))}

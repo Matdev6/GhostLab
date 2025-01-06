@@ -7,6 +7,7 @@ import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx'
 import Social from './pages/Social.jsx'
 
+
 const router = createBrowserRouter([
   {
     path:"/",

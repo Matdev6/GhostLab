@@ -1,67 +1,133 @@
-import { useForm } from "react-hook-form"
-import { loginWithGoogle } from "../services/auth"
-import google from "../assets/google.png"
-import { useNavigate } from "react-router-dom"
+import { useForm } from "react-hook-form";
+import { loginWithGoogle } from "../services/auth";
+import google from "../assets/google.png";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Login = () => {
-    const navigate = useNavigate()
-    const { register, handleSubmit, formState: { errors } } = useForm()
+  // Estados
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const handleLogin = async () => {
-        await loginWithGoogle(navigate);  // Passando navigate como argumento para o serviço
-      };
+  // Navegação e formulários
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubimit = async (data) => {
-        try {
-            const user = await login(data.password, data.name)
-            console.log("usario logado com sucesso", user)
-            alert("login realizado com sucesso!" + user)
-        } catch (error) {
-            console.error("Error no login", error.message)
-            alert("Erro no login " + error.message)
-        }
+  // Função para enviar os dados de login ao backend
+  const sendMessage = async (data) => {
+    try {
+      const response = await axios.post("http://127.0.0.1:2589/api/login/", {
+        name: data.name,
+        password: data.password,
+      });
+
+      // Lida com a resposta do backend
+      if (response.data.success) {
+        // Marca o usuário como autenticado
+        setIsAuthenticated(true);
+        setErrorMessage(''); // Limpa qualquer mensagem de erro
+      } else {
+        // Exibe a mensagem de erro no frontend
+        setErrorMessage(response.data.message);
+      }
+    } catch (error) {
+      console.error("Erro ao enviar os dados:", error.message);
+      setErrorMessage("Ocorreu um erro ao tentar realizar o login");
     }
+  };
 
+  // Função para login com o Google
+  const handleLogin = async () => {
+    await loginWithGoogle(navigate);
+  };
 
-    return (
-        <div className="flex bg-zinc-200 h-screen w-screen">
-            <div className="h-5/6 w-4/5 items-center justify-center  flex m-auto">
-                <div className="h-full w-1/2 bg-fundo-secundario">
-                    <h1 className="text-white"></h1>
-                </div>
-                <div className=" h-full w-1/2 bg-white">
-                    <div className="flex flex-col mx-40 my-20">
-                        <h1 className="font-bold text-5xl ">Login</h1>
-                        <p className="text-sm text-zinc-400 my-8">Seja bem vindo de volta!</p>
-                        <p className="text-zinc-400 mb-4">Nome de usuario</p>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Nome"
-                            className="border p-4 rounded-2xl mb-6"
-                            {...register('name', { required: true, minLength: 3 })} />
-                            {errors?.name?.type == 'required' && <p className="text-red-600 -top-5 relative ml-2">O    nome é obrigatorio</p>}
-                        <p className="text-zinc-400 mb-4">Senha</p>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            placeholder="Senha" 
-                            className="border p-4 rounded-xl mb-6" 
-                            {...register('password', { required: true, minLength: 6 })} />
-                            {errors?.password?.type == 'required' && <p className="text-red-600 relative -top-5- ml-2 mb-6">A senha é obrigatoria</p>}
-                        <button 
-                            className="w-full p-4 border rounded-2xl bg-fundo-secundario text-white font-bold" onClick={() => handleSubmit(onSubimit)()}>Logar</button>
-                        <button 
-                            className="mt-3 p-4 w-full border rounded-2xl flex justify-center gap-4" 
-                            onClick={handleLogin}>Logar com  <img src={google} className="w-6" /> </button>
-                        <a 
-                            href="" 
-                            className="ml-2 mt-3 text-sm text-zinc-400">Não tem uma conta? Clique aqui para registar</a>
-                    </div>
-                </div>
-            </div>
+  // Efeito para redirecionamento
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/home'); // Redireciona para a página de sucesso após a autenticação
+    }
+  }, [isAuthenticated, navigate]);
+
+  // Renderização
+  return (
+    <div className="flex bg-zinc-200 h-screen w-screen">
+      <div className="h-5/6 w-4/5 flex items-center justify-center m-auto">
+        {/* Div lateral esquerda */}
+        <div className="h-full w-1/2 bg-fundo-secundario">
+          <h1 className="text-white"></h1>
         </div>
-    )
-}
 
-export default Login
+        {/* Div principal de login */}
+        <div className="h-full w-1/2 bg-white">
+          <div className="flex flex-col mx-40 my-20">
+            <h1 className="font-bold text-5xl">Login</h1>
+            <p className="text-sm text-zinc-400 my-8">Seja bem-vindo de volta!</p>
+
+            {/* Campo Nome */}
+            <p className="text-zinc-400 mb-4">Nome de usuário</p>
+            <input
+              type="text"
+              placeholder="Nome"
+              className="border p-4 rounded-2xl mb-6"
+              {...register("name", { required: true, minLength: 3 })}
+            />
+            {errors?.name?.type === "required" && (
+              <p className="text-red-600 -top-5 relative ml-2">O nome é obrigatório</p>
+            )}
+
+            {/* Campo Senha */}
+            <p className="text-zinc-400 mb-4">Senha</p>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Senha"
+              className="border p-4 rounded-xl mb-6"
+              {...register("password", { required: true, minLength: 5 })}
+            />
+            <button
+              className="border p-4 rounded-xl mb-3"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              Exibir senha
+            </button>
+            {errors?.password?.type === "required" && (
+              <p className="text-red-600 relative -top-5 ml-2 mb-6">A senha é obrigatória</p>
+            )}
+
+            {/* Mensagem de erro (se houver) */}
+            {errorMessage && (
+              <p className="text-red-600 mb-4">{errorMessage}</p>
+            )}
+
+            {/* Botão de Login */}
+            <button
+              className="w-full p-4 border rounded-2xl bg-fundo-secundario text-white font-bold"
+              onClick={handleSubmit(sendMessage)} // Submete os dados do formulário
+            >
+              Logar
+            </button>
+
+            {/* Botão de Login com Google */}
+            <button
+              className="mt-3 p-4 w-full border rounded-2xl flex justify-center gap-4"
+              onClick={handleLogin} // Exclusivo para o Google
+            >
+              Logar com <img src={google} className="w-6" alt="Google" />
+            </button>
+
+            {/* Link para registro */}
+            <a
+              href=""
+              className="ml-2 mt-3 text-sm text-zinc-400"
+            >
+              Não tem uma conta? Clique aqui para registrar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

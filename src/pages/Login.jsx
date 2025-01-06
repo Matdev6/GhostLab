@@ -29,7 +29,7 @@ const Login = () => {
         setIsAuthenticated(true);
         setErrorMessage(''); // Limpa qualquer mensagem de erro
       } else {
-        // Exibe a mensagem de erro no frontend
+        // Exibe a mensagem de erro no frontend teste
         setErrorMessage(response.data.message);
       }
     } catch (error) {

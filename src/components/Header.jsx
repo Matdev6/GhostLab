@@ -7,6 +7,8 @@ const Header = () => {
 
     const [menuOpen, setMenuOpen] = useState(false)
 
+    const user = JSON.parse(sessionStorage.getItem("@AuthFirebase:user"))
+    
     return (
 
         <section className="overflow-x-hidden" id="catalogo">
@@ -53,12 +55,13 @@ const Header = () => {
                             </g>
                         </svg>
                     </button>
-                    <div className={`absolute lg:hidden top-20 left-0 w-full h-screen bg-black  flex-col items-center gap-6 font-semibold text-lg transform transition-transform  ${menuOpen ? "flex" : 'hidden'}`}>
-                        <a href="#" className=" w-full text-center py-6">Home</a>
+                    <div className={`absolute lg:hidden top-20 left-0 w-full h-screen bg-black  flex-col items-center gap-6  font-semibold text-lg transform transition-opacity  ${menuOpen ? "flex" : 'hidden'}`}>
+                        <a href="#" className=" w-full text-center py-6 or">Home</a>
                         <a href="#" className=" w-full text-center py-6">Catalogo Exclusivo</a>
                         <a href="#" className=" w-full text-center py-6">Catalogo Não exclusivo</a>
                         <a href="#" className=" w-full text-center py-6">Social</a>
                         <a href="#" className=" w-full text-center py-6">Footer</a>
+    
                     </div>
                 </div>
             </header>

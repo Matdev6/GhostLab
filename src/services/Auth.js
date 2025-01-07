@@ -13,10 +13,11 @@ export const loginWithGoogle = async (navigate) => {
     sessionStorage.setItem("@AuthFirebase:token", user.accessToken);
     sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user));
     console.log("Usuário logado:", user);
-
     // Redirecionar para outra rota após o login
-    navigate("/home");  // Roteamento para a página desejada
+    navigate("/home")
+    // Roteamento para a página desejada
   } catch (error) {
     console.error("Erro no login com o Google:", error.message);
   }
 };
+

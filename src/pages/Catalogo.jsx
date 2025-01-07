@@ -33,18 +33,53 @@ const Catalogo = () => {
                 {/* Catalogo dos beats no pc, no mobile irá ficar oculto */}
                 <div className=' h-3/4 w-full mx-auto  justify-center gap-4 items-center lg:flex-row hidden lg:flex'>
                     <button>
-                        <svg width="48px" height="48px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-                            <g id="SVGRepo_iconCarrier"> <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#AD26E3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> </g>
+                        <svg
+                            width="48px"
+                            height="48px"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            stroke="#000000"
+                        >
+                            <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M6 12H18M6 12L11 7M6 12L11 17"
+                                    stroke="#AD26E3"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </g>
                         </svg>
+
                     </button>
                     {/* Usa o map para redendizar o componente Beats para cada imagem*/}
 
                     {[beat1, beat2, beat3, beat4, beat5].map((beat, index) => (
                         <Beats imageSrc={beat} key={index} />
                     ))}
-                    <button><svg width="48px" height="48px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#AD26E3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+                    <button><svg
+  width="48px"
+  height="48px"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+  <g id="SVGRepo_iconCarrier">
+    <path
+      d="M5 12H19M19 12L13 6M19 12L13 18"
+      stroke="#AD26E3"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></path>
+  </g>
+</svg>
+</button>
                 </div>
                 {/* Catalogo mobile usando o Swiper para fazer um carrosel, fica oculto no pc */}
                 <div className='flex lg:hidden justify-center w-full my-auto'>

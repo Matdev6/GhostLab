@@ -5,6 +5,8 @@ import NaoExclusivo from "./Naoexclusivo";
 import Social from "./Social";
 
 const Home = () => {
+
+
     return (
         <>
         <section className="overflow-hidden">

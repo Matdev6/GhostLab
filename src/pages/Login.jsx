@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion"; 
 import { loginWithGoogle } from "../services/auth";
 import google from "../assets/google.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import logo from "../assets/logo.png"
+import eye from "../assets/eye.png"
 
 const Login = () => {
   // Estados
@@ -55,9 +58,14 @@ const Login = () => {
     <div className="flex bg-zinc-200 h-screen w-screen">
       <div className="h-5/6 w-4/5 flex items-center justify-center m-auto">
         {/* Div lateral esquerda */}
-        <div className="h-full w-1/2 bg-fundo-secundario">
-          <h1 className="text-white"></h1>
-        </div>
+        <motion.div 
+          className="h-full w-1/2 bg-black flex"
+          initial={{ x: -500 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.7  }}>
+            
+          <img src={logo} alt="logo" className="w-2/3 h-2/3 m-auto" />
+        </motion.div>
 
         {/* Div principal de login */}
         <div className="h-full w-1/2 bg-white">
@@ -79,18 +87,21 @@ const Login = () => {
 
             {/* Campo Senha */}
             <p className="text-zinc-400 mb-4">Senha</p>
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Senha"
-              className="border p-4 rounded-xl mb-6"
-              {...register("password", { required: true, minLength: 5 })}
-            />
-            <button
-              className="border p-4 rounded-xl mb-3"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              Exibir senha
-            </button>
+            <div className="relative w-full mb-6">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Senha"
+                className="border w-full p-4 rounded-xl pr-12"
+                {...register("password", { required: true, minLength: 5 })}
+              />
+              <img
+                src={eye}
+                alt="Mostrar senha"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer hover:border-t-2 "
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            </div>
+
             {errors?.password?.type === "required" && (
               <p className="text-red-600 relative -top-5 ml-2 mb-6">A senha é obrigatória</p>
             )}

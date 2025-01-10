@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-const BeatsMobile = ({ imageSrc, label = "Novidade!", name}) => {
+const Beats = ({ imageSrc, label = "Novidade!", name}) => {
     return (
         <Link to={`/home/beat/${name}`}>
             <div className="flex flex-col">
@@ -15,4 +15,4 @@ const BeatsMobile = ({ imageSrc, label = "Novidade!", name}) => {
     )
 }
 
-export default BeatsMobile
+export default Beats

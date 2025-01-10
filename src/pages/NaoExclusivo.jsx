@@ -1,23 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 import { motion } from "framer-motion";
-import BeatsMobile from '../components/BeatsMobile';
-import Beats from '../components/beatsData';
-import beat1 from "../assets/beat1.jfif"
-import beat2 from "../assets/beat2.jfif"
-import beat3 from "../assets/beat3.jfif"
-import beat4 from "../assets/beat4.jfif"
-import beat5 from "../assets/beat5.jfif"
+import Beats from '../components/Beats';
+import beats from '../components/beatsData';
+
 
 const NaoExclusivo = () => {
 
-    const beats = [
-        { name: "Nome do beat 01", img: beat1,},
-        { name: "Nome do beat 02", img: beat2 },
-        { name: "Nome do beat 03", img: beat3 },
-        { name: "Nome do beat 04", img: beat4 },
-        { name: "Nome do beat 05", img: beat5 },
-    ];
 
     return(
         <section className="altura-tela bg-black w-screen">
@@ -36,19 +25,29 @@ const NaoExclusivo = () => {
 
                     </Swiper>
                 </motion.div>
-                <motion.div className='flex lg:hidden mt-10'>
+                <motion.div className='flex  mt-10'>
                     <Swiper
                     modules={[Navigation, Scrollbar, A11y]}
                     spaceBetween={0}
                     slidesPerView={1}
                     navigation
                     scrollbar={{ draggable: true}}
+                    breakpoints={{
+                        760: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 5,
+                            spaceBetween: 5,
+                        },
+                    }}
+                    sty
                     style={{
                         '--swiper-navigation-color': '#AD26E3', // Customiza as cores do navigation
                     }}>
                         {beats.map((beat, index) => (
                             <SwiperSlide key={index}>
-                                <BeatsMobile imageSrc={beat.img} name={beat.name} />
+                                <Beats imageSrc={beat.img} name={beat.name} />
                             </SwiperSlide>
                         ))}
                     </Swiper>

@@ -1,7 +1,7 @@
 import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from "framer-motion";
-import BeatsMobile from '../components/BeatsMobile';
+import Beats from '../components/Beats';
 import beats from '../components/beatsData'; // Agora funciona com default export
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -48,7 +48,7 @@ const Catalogo = () => {
                         >
                             {beats.map((beat, index) => (
                                 <SwiperSlide className='text-white' key={index}>
-                                    <BeatsMobile imageSrc={beat.img} name={beat.name} />
+                                    <Beats imageSrc={beat.img} name={beat.name} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

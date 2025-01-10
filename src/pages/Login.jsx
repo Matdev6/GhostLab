@@ -55,20 +55,23 @@ const Login = () => {
 
   // Renderização
   return (
-    <div className="flex bg-zinc-200 h-screen w-screen">
+    <div className="flex bg-zinc-200 h-screen w-screen overflow-hidden">
       <div className="h-5/6 w-4/5 flex items-center justify-center m-auto">
         {/* Div lateral esquerda */}
         <motion.div 
           className="h-full w-1/2 bg-black flex"
           initial={{ x: -500 }}
           animate={{ x: 0 }}
-          transition={{ duration: 0.7  }}>
+          transition={{ duration: 0.5  }}>
             
           <img src={logo} alt="logo" className="w-2/3 h-2/3 m-auto" />
         </motion.div>
 
         {/* Div principal de login */}
-        <div className="h-full w-1/2 bg-white">
+        <motion.div className="h-full w-1/2 bg-white"
+          initial={{ x: 500 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.4 }}>
           <div className="flex flex-col mx-40 my-20">
             <h1 className="font-bold text-5xl">Login</h1>
             <p className="text-sm text-zinc-400 my-8">Seja bem-vindo de volta!</p>
@@ -97,7 +100,7 @@ const Login = () => {
               <img
                 src={eye}
                 alt="Mostrar senha"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer hover:border-t-2 "
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer "
                 onClick={() => setShowPassword(!showPassword)}
               />
             </div>
@@ -135,7 +138,7 @@ const Login = () => {
               Não tem uma conta? Clique aqui para registrar
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

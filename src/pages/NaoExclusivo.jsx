@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 import { motion } from "framer-motion";
 import BeatsMobile from '../components/BeatsMobile';
-import Beats from '../components/Beats';
+import Beats from '../components/beatsData';
 import beat1 from "../assets/beat1.jfif"
 import beat2 from "../assets/beat2.jfif"
 import beat3 from "../assets/beat3.jfif"

@@ -9,9 +9,9 @@ const NaoExclusivo = () => {
 
 
     return(
-        <section className="altura-tela bg-black w-screen">
+        <section className="altura-tela bg-neutral-950 w-screen">
             <div className="flex flex-col ">
-                <h1 className="text-white text-3xl font-semibold uppercase mx-auto m-20 lg:ml-24">Beats não exclusivos</h1>
+                <h1 className="text-white text-3xl w-3/4 text-center sm:text-start font-semibold uppercase mx-auto m-20 lg:ml-24">Beats não exclusivos</h1>
                 <motion.div className='hidden lg:flex w-screen'>
                     <Swiper modules={[Navigation, Scrollbar, A11y]}
                     spaceBetween={0}

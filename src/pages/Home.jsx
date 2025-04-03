@@ -3,6 +3,7 @@ import videoplayback from "../assets/videoplayback.mp4";
 import Catalogo from "./Catalogo";
 import NaoExclusivo from "./Naoexclusivo";
 import Social from "./Social";
+import Mix from "./Mix";
 
 const Home = () => {
 
@@ -32,6 +33,7 @@ const Home = () => {
             </div>
         </section>
         <Catalogo />
+        <Mix />
         <NaoExclusivo />
         <Social />
         </>

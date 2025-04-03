@@ -1,6 +1,7 @@
 import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from "framer-motion";
+
 import Beats from '../components/Beats';
 import beats from '../components/beatsData'; // Agora funciona com default export
 import 'swiper/css';
@@ -15,9 +16,9 @@ const Catalogo = () => {
 
     return (
         // Cria section que irá exibir o catalogo
-        <section className="w-screen altura-tela  bg-black flex flex-col">
+        <section className="w-screen altura-tela bg-neutral-950 flex flex-col">
             <div className='flex flex-col my-auto'>
-                <h1 className='text-white font-bold text-3xl lg:text-4xl mb-20 mx-auto lg:ml-24 uppercase '>Beats Exclusivos 🔥</h1>
+                <h1 className='text-white font-semibold text-3xl  mb-20 mx-auto lg:ml-24 uppercase '>Beats Exclusivos 🔥</h1>
                 {/* Catalogo dos beats no pc, no mobile irá ficar oculto */}
 
                 {/* Catalogo mobile usando o Swiper para fazer um carrosel, fica oculto no pc */}
@@ -48,7 +49,7 @@ const Catalogo = () => {
                         >
                             {beats.map((beat, index) => (
                                 <SwiperSlide className='text-white' key={index}>
-                                    <Beats imageSrc={beat.img} name={beat.name} />
+                                    <Beats imageSrc={beat.img} name={beat.name}  />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

@@ -18,7 +18,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  // Função para enviar os dados de login ao backend
+  // Função para enviar os dados de login ao backend '
   const sendMessage = async (data) => {
     try {
       const response = await axios.post("http://127.0.0.1:2589/api/login/", {

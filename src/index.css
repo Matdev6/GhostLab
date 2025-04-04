@@ -16,6 +16,8 @@
   height: calc(100vh - 80px);
 }
 
-.img-fundo {
-  background-image: url("../assets/fundo.jpg");
+
+/* Oculta a barra de rolagem visual do Swiper */
+.swiper-no-scrollbar .swiper-scrollbar {
+  display: none !important;
 }

@@ -9,7 +9,7 @@ const Beats = ({ imageSrc, label = "Novidade!", name}) => {
                     <img src={imageSrc} alt={name} className='w-full h-full object-cover' />
                     <h1 className='bg-roxo-claro text-white px-4 py-1 text-sm absolute top-0 left-0'>{label}</h1>
                 </div>
-                <h1 className="mx-auto my-3 text-xl font-serif text-zinc-50">{name}</h1>
+                <h1 className="sm:ml-10 ml-10 mt-3 mb-2 text-lg font-semibold text-violet-400 ">{name}</h1>
             </div>
         </Link>
     )

@@ -4,39 +4,39 @@ import spotify from '../assets/spotify.png'
 import youtube from '../assets/youtube.png'
 import whatsapp from '../assets/whatsapp.png'
 import { useRef } from "react";
+import svg from "../assets/social.svg"
 
 const Social = () => {
     const scrollRef = useRef(null)
 
     return (
-        <section ref={scrollRef} className="lg:altura-tela w-screen bg-neutral-900 h-full">
+        <section ref={scrollRef} className=" w-screen bg-gradient-to-r to-[#8849E6] from-[#472B94] h-full">
             <div className="flex flex-col  ">
-                <h1 className="text-white flex m-10  text-3xl text-center   font-bold md:m-52 lg:hidden">Nossas redes sociais</h1>
-                <h1 className="text-white ml-28 mt-10 mb-20    text-3xl font-bold  hidden lg:flex ">Nossas redes sociais</h1>
-                <div className="flex ml-12 w-screen flex-col gap-4 lg:gap-10 md:ml-52 lg:flex-row lg:my-auto pb-6">
+                <h1 className="text-white flex m-10 sm:m-20  text-3xl text-center  font-bold  justify-center">Nossas redes sociais</h1>
+                <div className="flex ml-12 w-screen flex-col gap-4 lg:gap-10 md:ml-60 lg:flex-row lg:my-auto pb-6">
                     <SocialCard
                         link="https://www.youtube.com/@Zero.og31"
                         logo={whatsapp}
-                        text="Clique aqui e seja direcionado para nosso Whatsapp "
-                        title="Whatsapp"
+                        text="Agende sua produção e tire todas as suas dúvidas pelo WhatsApp. "
+                        title="Fale com a gente!"
                     />
                     <SocialCard
                         link="https://www.instagram.com/ghostlab_gang/"
                         logo={instagram}
-                        text="Clique aqui para acessar nosso instagram e ficar por dentro das novidades!"
-                        title="Instagram"
+                        text="Siga-nos para acompanhar as últimas novidades, bastidores e conteúdos exclusivos."
+                        title="Fique por dentro!"
                         />
                     <SocialCard
                         link="https://open.spotify.com/intl-pt/artist/4DuWHxZyzuP9ZCuIsHscce"
                         logo={spotify}
-                        text="Clique aqui para acessar nosso spotify e acompamnhar meus lançamentos"
-                        title="Spotify"
+                        text="Não perca nossos lançamentos e playlists exclusivas no Spotify."
+                        title="Ouça agora!"
                         />
                     <SocialCard
                         link="https://www.youtube.com/@Zero.og31"
                         logo={youtube}
-                        text="Clique aqui para cessar nosso Youtube e veja nossos clipes "
-                        title="Youtube"
+                        text="Confira nossos lançamentos e vídeos inéditos no YouTube."
+                        title="Assista nossos clipes!"
                     />
                 </div>
             </div>

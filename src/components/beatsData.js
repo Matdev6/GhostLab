@@ -12,7 +12,7 @@ export const beats = [
         img: beat1,
     },
     {
-        name: "Sem  amizade",
+        name: "Sem amizade",
         img: beat2,
         audio: sound2
     },

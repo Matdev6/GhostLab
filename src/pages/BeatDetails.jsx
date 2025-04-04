@@ -2,11 +2,6 @@ import { useParams } from 'react-router-dom';
 import { beats } from '../components/beatsData'; // Certifique-se de que o caminho está correto
 import { Link } from 'react-router-dom';
 import React, { useRef, useState } from 'react';
-
-import pause from "../assets/pausa.png";
-import play from "../assets/play.png";
-import avancar from "../assets/avancar.png";
-import voltar from "../assets/voltar.png";
 import { Pause, Play, SkipBack, SkipForward, Volume2 } from 'lucide-react';
 
 const BeatDetails = () => {
@@ -88,18 +83,18 @@ const BeatDetails = () => {
   }
 
   return (
-    <div className="text-white p-4 bg-neutral-950 h-screen w-screen flex flex-col items-center justify-center">
+    <div className="text-white p-4 bg-gradient-to-t to-neutral-950 from-neutral-800  h-screen w-screen flex flex-col items-center justify-center gap-8">
 
-      <div>
-        <img src={beat.img} alt={beat.name} className="border border-neutral-800 md:w-80 mx-auto my-4 mt-20 rounded-xl shadow-xl" />
+      <div className=''>
+        <img src={beat.img} alt={beat.name} className="border border-neutral-800 md:w-80 mx-auto  rounded-xl shadow-xl" />
       </div>
 
       {/* Music Player */}
-      <div className="w-full max-w-md p-4 rounded-lg">
+      <div className="w-full max-w-md p-4 rounded-lg bg-neutral-800">
         <p className="text-lg font-medium">{beat.name}</p>
         <div
           ref={progressRef}
-          className="w-full h-2 bg-gray-700 rounded cursor-pointer relative mt-8"
+          className="w-full h-2 bg-gray-700 rounded cursor-pointer relative mt-8 "
           onClick={handleProgressClick}
         >
 
@@ -108,7 +103,7 @@ const BeatDetails = () => {
             style={{ width: `${(currentTime / duration) * 100}%` }}
           ></div>
         </div>
-        <div className='flex justify-between'>
+        <div className='flex justify-between '>
           <div className="text-sm mt-2 text-start text-neutral-400">
             {formatTime(currentTime)}
           </div>
@@ -153,7 +148,7 @@ const BeatDetails = () => {
         </div> */}
       </div>
 
-      <div className="flex sm:flex-row gap-4 mt-6">
+      <div className="flex sm:flex-row gap-4 mt-2">
         <Link
           to="/home"
           className="px-4 py-2 bg-roxo-claro hover:bg-roxo-escuro text-white rounded text-center font-bold"

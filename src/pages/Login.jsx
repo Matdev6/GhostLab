@@ -46,6 +46,10 @@ const Login = () => {
     await loginWithGoogle(navigate);
   };
 
+  const test = () => {
+    navigate("dashboard")
+  }
+
   // Efeito para redirecionamento
   useEffect(() => {
     if (isAuthenticated) {
@@ -117,7 +121,7 @@ const Login = () => {
             {/* Botão de Login */}
             <button
               className="w-full p-4 border rounded-2xl bg-fundo-secundario text-white font-bold"
-              onClick={handleSubmit(sendMessage)} // Submete os dados do formulário
+              onClick={test} // Submete os dados do formulário
             >
               Logar
             </button>

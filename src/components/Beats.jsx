@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Beats = ({ imageSrc, label = "Novidade!", name}) => {
     return (
-        <Link to={`/home/beat/${name}`}>
+        <Link to={`/beat/${name}`}>
             <div className="flex flex-col">
                 <div className='bg-white w-72 md:w-72 h-72 md:h-72 mx-auto relative'>
                     <img src={imageSrc} alt={name} className='w-full h-full object-cover' />

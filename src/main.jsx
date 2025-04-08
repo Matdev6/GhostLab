@@ -7,21 +7,26 @@ import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx'
 import Social from './pages/Social.jsx'
 import BeatDetails from './pages/BeatDetails.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 
 const router = createBrowserRouter([
   {
-    path:"/",
+    path: "/adm",
     element: <Login />,
   },
   {
-    path:"/home",
+    path: "/adm/dashboard",
+    element: <Dashboard />
+  },
+  {
+    path: "/",
     element: <App />,
     children: [
       {
         path: '',
         element: <Home />,
-      }, 
+      },
       {
         path: "beat/:name", //Rota dinamica para cada beat
         element: <BeatDetails />

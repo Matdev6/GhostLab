@@ -4,6 +4,7 @@ import Catalogo from "./Catalogo";
 import NaoExclusivo from "./Naoexclusivo";
 import Social from "./Social";
 import Mix from "./Mix";
+import Footer from "../components/Footer";
 
 const Home = () => {
 
@@ -36,6 +37,7 @@ const Home = () => {
         <Mix />
         <NaoExclusivo />
         <Social />
+        <Footer />
         </>
     );
 }

@@ -10,7 +10,7 @@ const Social = () => {
     const scrollRef = useRef(null)
 
     return (
-        <section ref={scrollRef} className=" w-screen bg-gradient-to-r to-[#8849E6] from-[#472B94] h-full">
+        <section ref={scrollRef} className=" w-screen bg-gradient-to-r to-[#8849E6] from-[#472B94] h-full sm:h-[77vh]">
             <div className="flex flex-col  ">
                 <h1 className="text-white flex m-10 sm:m-20  text-3xl text-center  font-bold  justify-center">Nossas redes sociais</h1>
                 <div className="flex ml-12 sm:ml-0 w-screen flex-col gap-4 lg:gap-10 justify-center lg:flex-row  pb-6">

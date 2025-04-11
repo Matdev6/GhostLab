@@ -21,3 +21,8 @@
 .swiper-no-scrollbar .swiper-scrollbar {
   display: none !important;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}

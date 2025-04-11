@@ -93,22 +93,22 @@ export default function AdmBeatsExclusivos() {
 
                 <Modal open={open} onClose={() => setOpen(false)}>
                     <div>
-                        <h1 className="text-xl font-medium">Adicionar Beat</h1>
+                        <h1 className="text-lg font-medium">Adicionar Beat</h1>
                         <form onSubmit={handleSubmit(sendForm)} className="flex flex-col gap-2">
                             <input
                                 type="text"
                                 placeholder="Nome do beat"
-                                className="p-2 border rounded-lg mt-4"
+                                className="sm:p-2 p-1 border rounded-lg mt-4"
                                 {...register("name", {
                                     required: "O nome do beat é obrigatório.",
                                 })}
                             />
 
-                            <input type="file" accept="image/*" {...register("image")} />
-                            <input type="file" accept="audio/*" {...register("audio")} />
+                            <input type="file" accept="image/*" {...register("image")} className="text-sm" />
+                            <input type="file" accept="audio/*" {...register("audio")} className="text-sm" />
 
                             <label className="flex items-center gap-2 mt-2">
-                                <span>É exclusivo?</span>
+                                <span className="sm:text-md text-sm">É exclusivo?</span>
                                 <input
                                     type="checkbox"
                                     {...register("exclusive")}

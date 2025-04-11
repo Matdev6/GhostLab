@@ -1,9 +1,8 @@
 import { useState } from "react"
 import logo from "../assets/logo.png"
-import Modal from "../components/Modal"
-import AdmBeatsExclusivos from "../components/admBeatsExclusivos"
 import AdmBeats from "../components/AdmBeats"
 import { Link } from "react-router-dom"
+import AdmBeatsExclusivos from "../components/AdmBeatsExclusivos"
 
 export default function Dashboard() {
     const [open, setOpen] = useState(false)

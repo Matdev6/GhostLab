@@ -20,10 +20,10 @@ const Header = () => {
                 <div className="hidden lg:flex gap-3">
                     <Link to={'/'} className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94] transition-all" href="#">Home</Link>
                     <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro hover:to-[#472B94] shadow-md rounded-xl uppercase text-xs font-normal flex justify-center items-center" href="#catalogo">Catalogo exclusivo</a>
-                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">Catalogo </a>
+                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">Serviços</a>
+                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">Catalogo</a>
                     <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">Social</a>
-                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">orçamentos</a>
-                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">black friday</a>
+                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">Orçamentos</a>
                 </div>
                 <div className="flex lg:hidden">
                     <button className="cursor-pointer hover:bg-slate-950" aria-label="Abrir menu" onClick={() => setMenuOpen(!menuOpen)}>

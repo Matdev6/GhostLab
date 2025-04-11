@@ -86,7 +86,7 @@ const BeatDetails = () => {
         <img
           src={beat.image_path}
           alt={beat.name}
-          className="border border-neutral-800 md:w-80 mx-auto rounded-xl shadow-xl"
+          className="border border-neutral-800 md:w-80 w-64 mx-auto rounded-xl shadow-xl"
         />
       </div>
 

@@ -8,10 +8,9 @@ export default function AdmBeatsExclusivos() {
     const [beats, setBeats] = useState([]);
     const { register, handleSubmit, reset } = useForm();
 
-    // Buscar beats exclusivos
     const fetchBeats = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/beats/");
+            const response = await axios.get("https://ghostlabbackend.onrender.com/beats/");
             const exclusivos = response.data.filter(beat => beat.exclusive);
             setBeats(exclusivos);
         } catch (error) {
@@ -23,7 +22,6 @@ export default function AdmBeatsExclusivos() {
         fetchBeats();
     }, []);
 
-    // Enviar novo beat
     const sendForm = async (data) => {
         const formData = new FormData();
         formData.append("name", data.name);
@@ -36,7 +34,7 @@ export default function AdmBeatsExclusivos() {
         formData.append("exclusive", data.exclusive ? "true" : "false");
 
         try {
-            const response = await axios.post("http://localhost:8000/beats/", formData, {
+            const response = await axios.post("https://ghostlabbackend.onrender.com/beats/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -45,16 +43,15 @@ export default function AdmBeatsExclusivos() {
             console.log("Beat cadastrado com sucesso:", response.data);
             reset();
             setOpen(false);
-            fetchBeats(); // Atualiza a lista
+            fetchBeats();
         } catch (error) {
             console.error("Erro ao cadastrar beat:", error);
         }
     };
 
-    // Deletar beat
     const deletarBeat = async (id) => {
         try {
-            await axios.delete(`http://localhost:8000/beats/${id}`);
+            await axios.delete(`https://ghostlabbackend.onrender.com/beats/${id}`);
             fetchBeats();
         } catch (error) {
             console.error("Erro ao deletar beat:", error);
@@ -65,30 +62,28 @@ export default function AdmBeatsExclusivos() {
         <div className="sm:w-3/5 sm:h-[80vh] w-4/5 h-[80vh] m-4 sm:ml-2 bg-neutral-50 rounded-lg shadow-lg p-4 sm:mx-8 flex flex-col justify-between">
             <h1 className="text-center text-xl mb-4">Beats Exclusivos</h1>
 
-            <div className="w-full h-full">
-                    {beats.map((beat) => (
-                        <div key={beat.id} className="flex justify-between items-center border p-2 rounded-lg my-2 shadow-md">
-                            <div className="flex items-center sm:gap-4 mr-2 flex-col sm:flex-row">
-                                <img src={`http://localhost:8000/uploads/${beat.image_path.split('/').pop()}`} className="w-12 h-12 rounded-lg border shadow-lg" alt="" />
-                                <p className="font-semibold sm:text-lg text-sm w-max">{beat.name}</p>
-                            </div>
-
-                            <div className="flex gap-2 flex-col sm:flex-row">
-                                <button className="bg-yellow-500 text-white sm:px-3 px-2 py-1 rounded hover:bg-yellow-600">Editar</button>
-                                <button
-                                    onClick={() => deletarBeat(beat.id)}
-                                    className="bg-red-600 text-white  sm:px-3 px-2 py-1 rounded hover:bg-red-700"
-                                >
-                                    Deletar
-                                </button>
-                            </div>
+            <div className="w-full h-full overflow-y-auto">
+                {beats.map((beat) => (
+                    <div key={beat.id} className="flex justify-between items-center border p-2 rounded-lg my-2 shadow-md">
+                        <div className="flex items-center sm:gap-4 mr-2 flex-col sm:flex-row">
+                            <img src={beat.image_path} className="w-12 h-12 rounded-lg border shadow-lg" alt={beat.name} />
+                            <p className="font-semibold sm:text-lg text-sm w-max">{beat.name}</p>
                         </div>
-                    ))}
-                </div>
+
+                        <div className="flex gap-2 flex-col sm:flex-row">
+                            <button className="bg-yellow-500 text-white sm:px-3 px-2 py-1 rounded hover:bg-yellow-600">Editar</button>
+                            <button
+                                onClick={() => deletarBeat(beat.id)}
+                                className="bg-red-600 text-white sm:px-3 px-2 py-1 rounded hover:bg-red-700"
+                            >
+                                Deletar
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
 
             <div className="flex flex-col items-center gap-4">
-                
-           
                 <button
                     onClick={() => setOpen(true)}
                     className="bg-roxo-claro w-1/2 p-1 rounded-xl hover:bg-roxo-escuro text-neutral-50 font-bold transition-colors"
@@ -109,17 +104,8 @@ export default function AdmBeatsExclusivos() {
                                 })}
                             />
 
-                            <input
-                                type="file"
-                                accept="image/*"
-                                {...register("image")}
-                            />
-
-                            <input
-                                type="file"
-                                accept="audio/*"
-                                {...register("audio")}
-                            />
+                            <input type="file" accept="image/*" {...register("image")} />
+                            <input type="file" accept="audio/*" {...register("audio")} />
 
                             <label className="flex items-center gap-2 mt-2">
                                 <span>É exclusivo?</span>
@@ -140,7 +126,6 @@ export default function AdmBeatsExclusivos() {
                         </form>
                     </div>
                 </Modal>
-
             </div>
         </div>
     );

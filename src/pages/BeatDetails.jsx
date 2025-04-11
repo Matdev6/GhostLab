@@ -14,11 +14,10 @@ const BeatDetails = () => {
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
 
-  // Busca os beats da API e encontra o que tem o nome na URL
   useEffect(() => {
     const fetchBeats = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/beats/");
+        const response = await axios.get("https://ghostlabbackend.onrender.com/beats/");
         const beats = response.data;
         const beatFound = beats.find((b) => b.name === decodeURIComponent(name));
         setBeat(beatFound);
@@ -85,7 +84,7 @@ const BeatDetails = () => {
     <div className="text-white p-4 bg-gradient-to-t to-neutral-950 from-neutral-800 h-screen w-screen flex flex-col items-center justify-center gap-8">
       <div>
         <img
-          src={`http://localhost:8000/uploads/${beat.image_path.split('/').pop()}`}
+          src={beat.image_path}
           alt={beat.name}
           className="border border-neutral-800 md:w-80 mx-auto rounded-xl shadow-xl"
         />
@@ -100,7 +99,7 @@ const BeatDetails = () => {
           onClick={handleProgressClick}
         >
           <div
-            className="h-2 bg-neutral-50 absolute hover:bg-roxo-claro "
+            className="h-2 bg-neutral-50 absolute hover:bg-roxo-claro"
             style={{ width: `${(currentTime / duration) * 100}%` }}
           ></div>
         </div>
@@ -112,7 +111,7 @@ const BeatDetails = () => {
 
         <audio
           ref={audioRef}
-          src={`http://localhost:8000/uploads/${beat.audio_path.split('/').pop()}`}
+          src={beat.audio_path}
           onTimeUpdate={handleTimeUpdate}
           onLoadedMetadata={handleLoadedMetadata}
         ></audio>

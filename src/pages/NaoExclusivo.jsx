@@ -15,14 +15,13 @@ const NaoExclusivo = () => {
 
     const [beats, setBeats] = useState([]);
 
-    // GET dos beats exclusivos
     useEffect(() => {
         const fetchBeats = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/beats/");
-                const exclusivos = response.data.filter(beat => !beat.exclusive); // apenas não exclusivos
-                console.log("Beats exclusivos:", exclusivos);
-                setBeats(exclusivos);
+                const response = await axios.get("https://ghostlabbackend.onrender.com/beats/");
+                const naoExclusivos = response.data.filter(beat => !beat.exclusive);
+                console.log("Beats não exclusivos:", naoExclusivos);
+                setBeats(naoExclusivos);
             } catch (error) {
                 console.error("Erro ao buscar beats:", error);
             }
@@ -31,7 +30,6 @@ const NaoExclusivo = () => {
         fetchBeats();
     }, []);
 
-    // Inicializa os botões personalizados depois que o Swiper estiver renderizado
     useEffect(() => {
         if (
             swiperRef.current &&
@@ -44,9 +42,9 @@ const NaoExclusivo = () => {
             swiperInstance.params.navigation.prevEl = prevRef.current;
             swiperInstance.params.navigation.nextEl = nextRef.current;
 
-            swiperInstance.navigation.destroy(); // limpa navegação anterior
-            swiperInstance.navigation.init();     // inicializa com os novos refs
-            swiperInstance.navigation.update();   // atualiza
+            swiperInstance.navigation.destroy();
+            swiperInstance.navigation.init();
+            swiperInstance.navigation.update();
         }
     }, [beats]);
 
@@ -91,14 +89,13 @@ const NaoExclusivo = () => {
                                 {beats.map((beat) => (
                                     <SwiperSlide className="text-white" key={beat.id}>
                                         <Beats
-                                            imageSrc={`http://localhost:8000/uploads/${beat.image_path.split('/').pop()}`}
+                                            imageSrc={beat.image_path} // ✅ URL completa direto da API
                                             name={beat.name}
                                         />
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
 
-                            {/* Botões de navegação personalizados */}
                             <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-6 z-50">
                                 <button
                                     ref={prevRef}
@@ -110,7 +107,7 @@ const NaoExclusivo = () => {
                                     ref={nextRef}
                                     className="bg-black/40 hover:bg-black/60 text-white p-3 rounded-full transition-all relative sm:left-14 left-8 bottom-8"
                                 >
-                                    <ChevronRight className="w-6 h-6 " />
+                                    <ChevronRight className="w-6 h-6" />
                                 </button>
                             </div>
                         </div>

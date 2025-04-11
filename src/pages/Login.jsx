@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion"; 
-import { loginWithGoogle } from "../services/auth";
 import google from "../assets/google.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -19,47 +18,26 @@ const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   // Função para enviar os dados de login ao backend '
-  const sendMessage = async (data) => {
-    try {
-      const response = await axios.post("http://127.0.0.1:2589/api/login/", {
-        name: data.name,
-        password: data.password,
-      });
-
-      // Lida com a resposta do backend
-      if (response.data.success) {
-        // Marca o usuário como autenticado
-        setIsAuthenticated(true);
-        setErrorMessage(''); // Limpa qualquer mensagem de erro
-      } else {
-        // Exibe a mensagem de erro no frontend teste
-        setErrorMessage(response.data.message);
-      }
-    } catch (error) {
-      console.error("Erro ao enviar os dados:", error.message);
-      setErrorMessage("Ocorreu um erro ao tentar realizar o login");
-    }
-  };
-
   // Função para login com o Google
-  const handleLogin = async () => {
-    await loginWithGoogle(navigate);
-  };
+
+  const login = (data) => {
+    if(data.name == "zero" && data.password == "poliana123"){
+      navigate("dashboard")
+    }
+    else{
+      console.log("Nome de usuario ou senha incorretos")
+    }
+  }
 
   // Efeito para redirecionamento
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/home'); // Redireciona para a página de sucesso após a autenticação
-    }
-  }, [isAuthenticated, navigate]);
-
+ 
   // Renderização
   return (
-    <div className="flex bg-zinc-200 h-screen w-screen overflow-hidden">
-      <div className="h-5/6 w-4/5 flex items-center justify-center m-auto">
+    <div className="flex bg-zinc-200 h-screen w-screen overflow-hidden items-center justify-center">
+      <div className="sm:h-5/6 w-4/5  h-4/5 flex flex-col sm:flex-row items-center justify-center">
         {/* Div lateral esquerda */}
         <motion.div 
-          className="h-full w-1/2 bg-black flex"
+          className="h-full sm:w-1/2 w-full bg-black flex rounded-t-lg sm:rounded-none"
           initial={{ x: -500 }}
           animate={{ x: 0 }}
           transition={{ duration: 0.5  }}>
@@ -68,11 +46,11 @@ const Login = () => {
         </motion.div>
 
         {/* Div principal de login */}
-        <motion.div className="h-full w-1/2 bg-white"
+        <motion.div className="h-full sm:w-1/2 w-full bg-white rounded-b-lg sm:rounded-none"
           initial={{ x: 500 }}
           animate={{ x: 0 }}
           transition={{ duration: 0.4 }}>
-          <div className="flex flex-col mx-40 my-20">
+          <div className="flex flex-col sm:mx-40 sm:my-20 m-10">
             <h1 className="font-bold text-5xl">Login</h1>
             <p className="text-sm text-zinc-400 my-8">Seja bem-vindo de volta!</p>
 
@@ -117,18 +95,13 @@ const Login = () => {
             {/* Botão de Login */}
             <button
               className="w-full p-4 border rounded-2xl bg-fundo-secundario text-white font-bold"
-              onClick={handleSubmit(sendMessage)} // Submete os dados do formulário
+              onClick={handleSubmit(login)} // Submete os dados do formulário
             >
               Logar
             </button>
 
             {/* Botão de Login com Google */}
-            <button
-              className="mt-3 p-4 w-full border rounded-2xl flex justify-center gap-4"
-              onClick={handleLogin} // Exclusivo para o Google
-            >
-              Logar com <img src={google} className="w-6" alt="Google" />
-            </button>
+           
 
             {/* Link para registro */}
             <a

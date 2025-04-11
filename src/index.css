@@ -16,7 +16,13 @@
   height: calc(100vh - 80px);
 }
 
-.img-fundo {
-  background-image: url("../assets/spotify.png");
 
+/* Oculta a barra de rolagem visual do Swiper */
+.swiper-no-scrollbar .swiper-scrollbar {
+  display: none !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
 }

@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import videoplayback from "../assets/videoplayback.mp4";
 import Catalogo from "./Catalogo";
-import NaoExclusivo from "./Naoexclusivo";
 import Social from "./Social";
+import Mix from "./Mix";
+import Footer from "../components/Footer";
+import NaoExclusivo from "./NaoExclusivo";
 
 const Home = () => {
 
@@ -32,8 +34,10 @@ const Home = () => {
             </div>
         </section>
         <Catalogo />
+        <Mix />
         <NaoExclusivo />
         <Social />
+        <Footer />
         </>
     );
 }

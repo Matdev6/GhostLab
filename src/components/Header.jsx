@@ -13,15 +13,17 @@ const Header = () => {
     return (
 
         <section className="overflow-x-hidden" id="catalogo">
-            <header className="w-screen h-20 bg-black text-white flex justify-around lg:justify-center left-0 fixed top-0  items-center gap-3 z-50 ">
+            <header className="w-screen h-20 bg-black bg-opacity-90 text-neutral-200 flex justify-around left-0 fixed top-0  items-center gap-3 z-50 ">
+                <Link to={'/adm'}>
                 <img src={logo} alt="logo" className="w-20" />
+                </Link>
                 <div className="hidden lg:flex gap-3">
-                    <Link to={'/home'} className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:text-roxo-es transition-all" href="#">Home</Link>
-                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-xs font-normal flex justify-center items-center" href="#catalogo">Catalogo exclusivo</a>
-                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">Catalogo </a>
-                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">Social</a>
-                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">orçamentos</a>
-                    <a className="h-8 w-36 bg-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center" href="#">black friday</a>
+                    <Link to={'/'} className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94] transition-all" href="#">Home</Link>
+                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro hover:to-[#472B94] shadow-md rounded-xl uppercase text-xs font-normal flex justify-center items-center" href="#catalogo">Catalogo exclusivo</a>
+                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">Catalogo </a>
+                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">Social</a>
+                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">orçamentos</a>
+                    <a className="h-8 w-36 bg-gradient-to-r to-[#8849E6] from-roxo-claro shadow-md rounded-xl uppercase text-sm font-normal flex justify-center items-center hover:to-[#472B94]" href="#">black friday</a>
                 </div>
                 <div className="flex lg:hidden">
                     <button className="cursor-pointer hover:bg-slate-950" aria-label="Abrir menu" onClick={() => setMenuOpen(!menuOpen)}>

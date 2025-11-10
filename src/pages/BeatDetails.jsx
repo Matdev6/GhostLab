@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Pause, Play, SkipBack, SkipForward } from "lucide-react";
 import axios from "axios";
 
+
 const BeatDetails = () => {
   const { name } = useParams();
   const audioRef = useRef(null);
@@ -81,7 +82,10 @@ const BeatDetails = () => {
   };
 
   return (
-    <div className="text-white p-4 bg-gradient-to-t to-neutral-950 from-neutral-800 h-screen w-screen flex flex-col items-center justify-center gap-8">
+    <div
+      className="fixed inset-0 bg-cover z[-1] text-white p-4 bg-black h-screen w-screen flex flex-col items-center justify-center gap-8 bg-no-repeat bg-center"
+      style={{ backgroundImage: `url('/bgBeats.svg')` }}
+    >
       <div>
         <img
           src={beat.image_path}
@@ -90,7 +94,7 @@ const BeatDetails = () => {
         />
       </div>
 
-      <div className="w-full max-w-md p-4 rounded-lg bg-neutral-800">
+      <div className="w-full max-w-md p-4 rounded-lg bg-neutral-950A">
         <p className="text-lg font-medium">{beat.name}</p>
 
         <div

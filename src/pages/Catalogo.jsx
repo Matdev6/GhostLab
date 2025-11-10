@@ -48,7 +48,9 @@ const Catalogo = () => {
     }, [beats]);
 
     return (
-        <section className="w-screen altura-tela bg-neutral-950 flex flex-col relative">
+        <section 
+       
+        className="w-screen altura-tela bg-neutral-950 flex flex-col relative">
             <div className="flex flex-col my-auto">
                 <h1 className="text-white font-black text-3xl sm:text-4xl mb-20 mx-auto lg:ml-24 uppercase">
                     Beats Exclusivos
